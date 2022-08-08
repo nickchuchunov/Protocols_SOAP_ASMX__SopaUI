@@ -1,0 +1,75 @@
+﻿
+@using System;
+@using LibraryServiceReference1;
+@model LibraryService.Web.Models.BookCategoryViewModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+};
+
+<form asp-controller="Library" asp-action="Index">
+    <p>
+        <select asp-for="SearchType" asp-items="Html.GetEnumSelectList<SearchType>()">
+        </select>
+
+        <input type="text" name="SearchString" />
+
+        <input type="submit" value="Поиск" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Authors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        @{
+            int count = 0;
+             
+            while((Model.Books is IEnumerable<Book>)&&Model.Books!=null )
+            {
+                 while (Model.Books!=null&&Model.Books!=default&&Model.Books[0].Title!=default&&Model.Books[0].Title!=default&&Model.Books[0].Title!=null&&Model.Books[count].Title!=default&&Model.Books[count].Title!=null)
+            {
+                
+                                @foreach( IEnumerable<Book> item in Model.Books)
+         {
+              ++count;
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GetEnumerator().Current.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GetEnumerator().Current.Category)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GetEnumerator().Current.Authors)
+                            </td>
+                        </tr>
+         }
+
+            } 
+
+
+
+
+
+            }
+
+          
+        }
+       
+ 
+    </tbody>
+</table>
