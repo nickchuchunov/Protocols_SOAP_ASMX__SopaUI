@@ -17,6 +17,7 @@ var createClientResponse = client.CreateClient(new ClientServiceProtos.CreateCli
     Patronymic = "*******"
 });
 
+
 Console.WriteLine($"Client ({createClientResponse.ClientId}) created successfully.");
 
 

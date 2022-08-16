@@ -25,32 +25,59 @@ namespace ClinicService.Services.Impl
 
         public int Add(Pet item)
         {
-            throw new NotImplementedException();
+            _dbContext.Pets.Add(item);
+            _dbContext.SaveChanges();
+            return item.ClientId;
         }
 
         public void Delete(Pet item)
         {
-            throw new NotImplementedException();
+            if (item == null)
+                throw new NullReferenceException();
+            Delete(item.PetId);
+
+
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var pet = GetById(id);
+            if (pet == null)
+                throw new KeyNotFoundException();
+            _dbContext.Remove(pet);
+            _dbContext.SaveChanges();
+
         }
 
         public IList<Pet> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Pets.ToList();
         }
 
         public Pet? GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Pets.FirstOrDefault(pet => pet.PetId == id);
         }
 
         public void Update(Pet item)
         {
-            throw new NotImplementedException();
+            if (item == null)
+                throw new NullReferenceException();
+
+            var pet = GetById(item.PetId);
+            if (pet == null)
+            throw new KeyNotFoundException();
+
+            pet.PetId = item.PetId;
+            pet.ClientId = item.ClientId;
+            pet.Name = item.Name;
+            pet.Birthday = item.Birthday;
+            pet.Client = item.Client;
+            pet.Consultations = item.Consultations;
+          
+            _dbContext.Update(pet);
+            _dbContext.SaveChanges();
+
         }
     }
 }
