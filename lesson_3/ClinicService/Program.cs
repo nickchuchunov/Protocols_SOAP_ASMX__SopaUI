@@ -1,5 +1,6 @@
 using ClinicService.Data;
 using ClinicService.Services.Impl;
+using ClinicService.Services.impl;
 using ClinicService.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.HttpLogging;
@@ -100,7 +101,9 @@ namespace ClinicService
             {
                 // Communication with gRPC endpoints must be made through a gRPC client.
                 // To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909
-                endpoints.MapGrpcService<ClientService>();
+                endpoints.MapGrpcService<ClientService>();  
+                endpoints.MapGrpcService<ConsultationService>();
+                endpoints.MapGrpcService<PetService>();
             });
 
             app.Run();

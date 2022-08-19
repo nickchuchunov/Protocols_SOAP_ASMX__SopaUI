@@ -41,7 +41,7 @@ namespace ClinicService.Services.Impl
         {
             var consultation = GetById(id);
             if (consultation == null)
-                throw new KeyNotFoundException();
+             throw new KeyNotFoundException();
             _dbContext.Remove(consultation);
             _dbContext.SaveChanges();
         }

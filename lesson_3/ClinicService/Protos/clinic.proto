@@ -4,26 +4,66 @@ option csharp_namespace = "ClientServiceProtos";
 
 // https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/wrappers.proto
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/duration.proto";  
+import "google/protobuf/timestamp.proto";
 
 service ClientService {
 
-	rpc CreateClient (CreateClientRequest) returns (CreateClientResponse);
+	rpc CreateClient (CreateClientRequest) returns (CreateClientResponse); //1
 
-	rpc UpdateClient (UpdateClientRequest) returns (UpdateClientResponse);
+	rpc UpdateClient (UpdateClientRequest) returns (UpdateClientResponse); //3
 
-	rpc DeleteClient (DeleteClientRequest) returns (DeleteClientResponse);
+	rpc DeleteClient (DeleteClientRequest) returns (DeleteClientResponse); //4
 
-	rpc GetClientById (GetClientByIdRequest) returns (ClientResponse);
+	rpc GetClientById (GetClientByIdRequest) returns (ClientResponse); //5
 
-	rpc GetClients (GetClientsRequest) returns (GetClientsResponse);
+	rpc GetClients (GetClientsRequest) returns (GetClientsResponse); //2
 
-}
+ 
+
+
+    rpc ConsultationAdd (ConsultationAddRequest) returns (ConsultationAddResponse);
+
+    rpc ConsultationDelete (ConsultationDeleteRequest) returns (ConsultationDeleteResponse);
+
+    rpc ConsultationGetAll (ConsultationGetAllRequest) returns (ConsultationGetAllResponse);
+
+    rpc ConsultationGetById (ConsultationGetByIdRequest) returns (ConsultationGetByIdResponse);
+
+    rpc ConsultationUpdate  (ConsultationUpdateRequest) returns ( ConsultationUpdateResponse);
+
+    
+
+     
+      rpc   PetAdd (PetAddRequest) returns ( PetAddResponse);  
+
+      rpc   PetDelete (PetDeleteRequest) returns ( PetDeleteResponse);  
+
+      rpc   PetGetAll (PetGetAllRequest) returns ( PetGetAllResponse);  
+
+      rpc   PetGetById (PetGetByIdRequest) returns ( PetGetByIdResponse);  
+
+      rpc   PetUpdate (PetUpdateRequest) returns ( PetUpdateResponse);  
+     
+     
+     }
+
+
+
+
+    
+   
+
+
 
 message CreateClientRequest {
         string document = 1; 
         string surname = 2;
         string firstName = 3;
         string patronymic = 4;
+        
+   
+
 }
 
 message CreateClientResponse {
@@ -82,3 +122,164 @@ message ClientResponse {
         string firstName = 4;
         string patronymic = 5;
 }
+
+message ConsultationAddRequest {
+    int32 ClientId =1;
+    int32 PetId =2;
+    google.protobuf.Timestamp ConsultationDate =3;
+    string Description =4;
+    repeated ClientResponse client =5;
+    repeated PetResponse pet =6;
+   
+}
+
+message ConsultationAddResponse {
+
+ int32 errCode = 1;
+ string errMessage =2;
+}
+
+message ConsultationDeleteRequest {
+    int32 consultationId =1;
+
+}
+
+message ConsultationDeleteResponse {
+
+ int32 errCode = 1;
+ string errMessage =2;
+}
+
+message ConsultationGetAllRequest {
+
+
+}
+message ConsultationResponse {
+    int32 consultationid =1;
+    int32 clientId =2;
+    int32 petId =3;
+    google.protobuf.Timestamp consultationDate =4;
+    string description = 5;
+    repeated ClientResponse client = 6;
+    repeated PetResponse pet = 7;
+}
+
+
+
+
+message ConsultationGetAllResponse {
+    repeated ConsultationResponse consultation = 1;
+    int32 errCode = 2;
+    string errMessage =3;
+
+}
+
+
+
+message ConsultationGetByIdRequest {
+    int32 consultationId = 1;
+
+}
+
+message ConsultationGetByIdResponse {
+    int32 ConsultationId =1;
+    int32 ClientId =2;
+    int32 PetId =3;
+    google.protobuf.Timestamp ConsultationDate =4;
+    string Description =5;
+
+}
+//********************
+
+message ConsultationUpdateRequest {
+  int32 ConsultationId =1;
+ int32 ClientId = 2;
+ int32 PetId = 3;
+ google.protobuf.Timestamp ConsultationDate =4;
+ string Description = 5;
+ ClientResponse client = 6;
+ PetResponse pet =7;
+
+
+}
+
+message ConsultationUpdateResponse {
+
+  int32 errCode = 1;
+  string errMessage = 2;
+}
+
+message PetAddRequest {
+    int32 clientId = 1;
+    string name = 2;
+    google.protobuf.Timestamp birthday =3;
+    
+
+}
+message PetAddResponse{
+  int32 errCode = 1;
+  string errMessage =2;
+
+}
+message PetDeleteRequest {
+
+int32 petId =1;
+}
+message PetDeleteResponse{
+    int32 errCode = 1;
+    string errMessage =2;
+
+}
+message PetGetAllRequest{
+    
+
+}
+message PetGetAllResponse{
+     repeated PetResponse pet = 1;
+    int32 errCode = 2;
+    string errMessage =3;
+
+}
+
+message PetResponse{
+    int32 petId = 1;
+    int32 ClientId = 2;
+    string name = 3;
+    google.protobuf.Timestamp Birthday = 4;
+    repeated ClientResponse client = 5;
+    repeated ConsultationResponse consultations = 6;
+}
+
+
+
+
+
+
+message PetGetByIdRequest{
+    int32 petId =1; 
+
+}
+message PetGetByIdResponse {
+    int32 petId = 1;
+    int32 ClientId = 2;
+    string name = 3;
+    google.protobuf.Timestamp Birthday = 4;
+    repeated ClientResponse client = 5; 
+    repeated ConsultationResponse consultations = 6;
+
+}
+message PetUpdateRequest {
+ int32 PetId = 1;
+ int32 ClientId =2;
+ string Name = 3;
+ google.protobuf.Timestamp Birthday = 4;
+
+
+}
+message PetUpdateResponse {
+    int32 errCode = 1;
+    string errMessage =2;
+
+}
+
+
