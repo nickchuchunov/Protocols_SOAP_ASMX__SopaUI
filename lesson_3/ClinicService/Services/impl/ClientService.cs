@@ -1,10 +1,13 @@
 ﻿using ClientServiceProtos;
 using ClinicService.Data;
 using Grpc.Core;
+using Microsoft.AspNetCore.Authorization;
 using static ClientServiceProtos.ClientService;
+
 
 namespace ClinicService.Services.Impl
 {
+    
     public class ClientService : ClientServiceBase
     {
         #region Serives
