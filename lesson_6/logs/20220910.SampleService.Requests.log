@@ -1,0 +1,25 @@
+2022-09-10 16:18:17.5436|0|DEBUG|Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware|Unrecognized Content-Type for body. 
+2022-09-10 16:18:17.5832|0|INFO|Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware|Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /WeatherForecast
+QueryString: 
+Accept: text/plain
+Connection: keep-alive
+Host: localhost:5200
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.33
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+Referer: [Redacted]
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua: [Redacted]
+sec-ch-ua-platform: [Redacted]
+Sec-Fetch-Site: [Redacted]
+Sec-Fetch-Mode: [Redacted]
+Sec-Fetch-Dest: [Redacted] 
+2022-09-10 16:18:18.0138|0|INFO|Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware|Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8 
+2022-09-10 16:18:18.0229|0|INFO|Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware|ResponseBody: [{"date":"2022-09-11T16:18:17.7421997+03:00","temperatureC":26,"temperatureF":78,"summary":"Mild"},{"date":"2022-09-12T16:18:17.7427232+03:00","temperatureC":50,"temperatureF":121,"summary":"Mild"},{"date":"2022-09-13T16:18:17.742725+03:00","temperatureC":39,"temperatureF":102,"summary":"Scorching"},{"date":"2022-09-14T16:18:17.7427252+03:00","temperatureC":-2,"temperatureF":29,"summary":"Scorching"},{"date":"2022-09-15T16:18:17.7427253+03:00","temperatureC":31,"temperatureF":87,"summary":"Warm"}] 

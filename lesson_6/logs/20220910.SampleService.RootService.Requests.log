@@ -1,0 +1,18 @@
+2022-09-10 16:18:17.6362|0|INFO|Net.Http.Utils.HttpClient.RootServiceClient|Request #755d0316-5f5a-4290-a648-4d03049cbded
+Host: localhost
+Path: /WeatherForecast
+QueryString: 
+Method: GET
+Scheme: http
+Accept: text/plain
+ 
+2022-09-10 16:18:17.7774|0|INFO|Net.Http.Utils.HttpClient.RootServiceClient|Response #755d0316-5f5a-4290-a648-4d03049cbded
+Elapsed: 125ms
+StatusCode: 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Sat, 10 Sep 2022 13:18:17 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+ResponseBody:
+[{"date":"2022-09-11T16:18:17.7421997+03:00","temperatureC":26,"temperatureF":78,"summary":"Mild"},{"date":"2022-09-12T16:18:17.7427232+03:00","temperatureC":50,"temperatureF":121,"summary":"Mild"},{"date":"2022-09-13T16:18:17.742725+03:00","temperatureC":39,"temperatureF":102,"summary":"Scorching"},{"date":"2022-09-14T16:18:17.7427252+03:00","temperatureC":-2,"temperatureF":29,"summary":"Scorching"},{"date":"2022-09-15T16:18:17.7427253+03:00","temperatureC":31,"temperatureF":87,"summary":"Warm"}]
+ 

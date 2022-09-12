@@ -1,0 +1,2 @@
+2022-09-10 16:18:17.6084|0|INFO|SampleService.Controllers.WeatherForecastController|WeatherForecastController >>> START  GetWeatherForecast 
+2022-09-10 16:18:17.9988|0|INFO|SampleService.Controllers.WeatherForecastController|WeatherForecastController >>> END  GetWeatherForecast 
